@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block content %}
+    <div class="nav_items" style="height :50px; margin-bottom:33px;">
+			<ul >
+				<li class="active"><a href="#"><span>home</span></a></li>
+				<li><a href="services.html"><span>services</span></a></li>
+				<li><a href="elements.html"><span>elements</span></a></li>
+				<li><a href="blog.html"><span>blog</span></a></li>
+				<li><a href="contact.html"><span>contact</span></a></li>
+
+            </ul>
+    </div>
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+  </form>
+
+{% endblock %}
