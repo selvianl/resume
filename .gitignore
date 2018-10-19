@@ -3,13 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.py.swp
-idea/*
 
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+/portfolio/migrations/*
+.idea/*
 build/
 develop-eggs/
 dist/

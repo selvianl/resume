@@ -2,9 +2,30 @@
 {% load static%}
 {%block content%}
 
+ {% for object in object_list %}
+    {% if forloop.last %}
 
-    {{object_list.name}}
-    {{object_list.header}}
+        {{object.name}}
+        {{object.header}}
+    {% endif %}
+
+{% empty %}
+
+    QuerySet is Empty..
+
+
+    {% if request.user.is_superuser %}
+        <p > <a href = "{% url 'portfolio:add' %}"> Click </a> to add some data to queryset.  </p>
+
+    {% else %}
+
+
+    <p> First <a href = "/accounts/login/"> Login </a> as SuperUser ..  </p>
+
+
+    {% endif %}
+
+ {% endfor %}
 
 
 {%endblock content%}

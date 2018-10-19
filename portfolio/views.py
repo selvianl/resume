@@ -21,6 +21,7 @@ class HomeCreate(PermissionRequiredMixin, CreateView):
     model = Home
     form_class = HomeForm
     template_name = 'add.html'
+    success_url = reverse_lazy('portfolio:home')
 
     def has_permission(self):
         user = self.request.user
@@ -53,7 +54,7 @@ class HomeView(ListView):
     model = Home
 
     def get_queryset(self):
-        return self.model.objects.latest("id")
+        return self.model.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
