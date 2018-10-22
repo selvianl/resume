@@ -6,8 +6,8 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from portfolio.forms import HomeForm
-from portfolio.models import Home
+from portfolio.forms import *
+from portfolio.models import Home , Works , Skills ,Blog
 from django.core.exceptions import PermissionDenied
 
 
@@ -17,7 +17,7 @@ class SignUp(CreateView):
     template_name = 'signup.html'
 
 
-class HomeCreate(PermissionRequiredMixin, CreateView):
+class BaseFormCreateView(PermissionRequiredMixin, CreateView):
     model = Home
     form_class = HomeForm
     template_name = 'add.html'
@@ -29,23 +29,29 @@ class HomeCreate(PermissionRequiredMixin, CreateView):
             return user.has_perms('portfolio.add')
         raise PermissionDenied
 
+class WorksFormView(BaseFormCreateView):
+
+    model = Works
+    form_class = WorksForm
+    template_name = 'add_work.html'
+    success_url = reverse_lazy('portfolio:works')
+
+class SkillsFormView(BaseFormCreateView):
+
+    model = Skills
+    form_class = SkillsForm
+    template_name = 'add_skill.html'
+    success_url = reverse_lazy('portfolio:works')
+
+class WorksView(ListView):
+    template_name = 'works.html'
+    model = Works
+
     def get_queryset(self):
-        return self.model.objects.get.latest(id=self.kwargs.get("id"))
+        return self.model.objects.all()
 
     def get_context_data(self, **kwargs):
-        context = super(HomeCreate, self).get_context_data(**kwargs)
-        return context
-
-
-class ShowView(ListView):
-    template_name = 'show.html'
-    model = Home
-
-    def get_queryset(self):
-        return self.model.objects.latest("id")
-
-    def get_context_data(self, **kwargs):
-        context = super(ShowView, self).get_context_data(**kwargs)
+        context = super(WorksView, self).get_context_data(**kwargs)
         return context
 
 
@@ -60,8 +66,44 @@ class HomeView(ListView):
         context = super(HomeView, self).get_context_data(**kwargs)
         return context
 
+class SkillView(ListView):
+    template_name = 'skills.html'
+    model = Skills
+
+    def get_queryset(self):
+        return self.model.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(SkillView, self).get_context_data(**kwargs)
+        return context
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def add(request):
-    return render(request, 'demo.html')
+    return render(request, 'add_work.html')
 
 
 

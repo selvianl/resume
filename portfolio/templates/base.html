@@ -33,6 +33,7 @@
         {% if user.is_authenticated %}
                   Hi <b4> {{ user.username }}! </b4>
                   <p class="kayit" style="margin-top: 10px;"><a href="{% url 'logout' %}">logout</a></p>
+				  <a href="{% url 'portfolio:add_home' %}"><span>add</span></a>
                 {% else %}
                   <p style="margin-bottom:10px;">You are not logged in</p>
                   <div class="kayit" style="display: inline-block;">
@@ -98,15 +99,19 @@
 	</div>
 
 	<!-- Testimonials -->
+	<div class="testimonials">
 
-	<div class="testimonials" style="height: 100%;">
 		<div class="container">
 
-               {% block content %} {% endblock %}
+
+				{% block content %} {% endblock %}
+
 
 
 		</div>
 	</div>
+
+
 
 
 

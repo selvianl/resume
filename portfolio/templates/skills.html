@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% for object in object_list%}
+
+        <img src="/{{ object.logo }}" alt="" />
+
+
+    {% endfor %}
+
+{%endblock content%}
