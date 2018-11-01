@@ -13,8 +13,8 @@ from django.core.exceptions import PermissionDenied
 
 class SignUp(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('login')
     template_name = 'signup.html'
+    success_url = reverse_lazy('portfolio:add')
 
 
 class BaseFormCreateView(PermissionRequiredMixin, CreateView):
@@ -76,35 +76,3 @@ class SkillView(ListView):
     def get_context_data(self, **kwargs):
         context = super(SkillView, self).get_context_data(**kwargs)
         return context
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def add(request):
-    return render(request, 'add_work.html')
-
-
-
-#add_view = login_required(HomeCreate.as_view())

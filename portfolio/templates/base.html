@@ -26,7 +26,7 @@
 		<div class="logo_container mr-auto">
 			<div class="logo">
 
-				<a href="#"><span>z</span>zeta<span>.</span></a>
+				<a href="{% url 'portfolio:home' %}"><span>z</span>zeta<span>.</span></a>
 			</div>
 		</div>
         <div class="container">
@@ -43,9 +43,9 @@
 		<!-- Main Navigation -->
 		<nav class="main_nav justify-self-end">
 			<ul class="nav_items">
-				<li class="active"><a href="#"><span>home</span></a></li>
-				<li><a href="services.html"><span>services</span></a></li>
-				<li><a href="elements.html"><span>elements</span></a></li>
+				<li class="active"><a href="{% url 'portfolio:home' %}"><span>home</span></a></li>
+				<li><a href="{% url 'portfolio:works' %}"><span>works</span></a></li>
+				<li><a href="{% url 'portfolio:skills' %}"><span>skills</span></a></li>
 				<li><a href="blog.html"><span>blog</span></a></li>
 				<li><a href="contact.html"><span>contact</span></a></li>
 			</ul>
