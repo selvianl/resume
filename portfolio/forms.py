@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from portfolio.models import Home, Works , Skills, Blog
+from portfolio.models import Home, Works , Skills, Blog , SkillsCategory
 
 
 
@@ -18,6 +18,11 @@ class WorksForm (HomeForm):
 class SkillsForm(HomeForm):
     class Meta:
         model = Skills
+        fields = "__all__"
+
+class SkillsCategoryForm(HomeForm):
+    class Meta:
+        model = SkillsCategory
         fields = "__all__"
 
 class BlogForms(HomeForm):

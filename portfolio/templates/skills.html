@@ -2,18 +2,18 @@
 {% load static %}
 {% block content %}
     <div class="row">
-    <div class="col-md-4" style="border-right: 1px solid;">
-		<div class="col-md-12">
 
-		<h4 style="text-align:center;"> Languages </h4> <br>
-		</div>
-		{% for object in object_list%}
-				<img style = "width:96px; height:96px;"src="/{{ object.logo }}" alt="" />
+
+		{% for category in categories %}
+		<div class="col-md-4" >
+				<div> {{category.name}} </div>
+			{% for object in object_list%}
+             {% if object.category.id == category.id %}
+				<img style = "width:96px; height:96px;"src="/{{ object.logo }}" alt="" /> {% endif %}
 							{% endfor %}
 
-
-
-
+		</div>
+			{% endfor %}
 
     </div>
     </div>

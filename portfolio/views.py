@@ -1,13 +1,10 @@
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import login_required
-from portfolio.forms import *
-from portfolio.models import Home , Works , Skills ,Blog
+from portfolio.form import *
+from portfolio.models import Home , Works , Skills  ,SkillsCategory
 from django.core.exceptions import PermissionDenied
 
 
@@ -16,34 +13,20 @@ class SignUp(CreateView):
     template_name = 'signup.html'
     success_url = reverse_lazy('portfolio:add')
 
+class CategoryView (ListView):
 
-class BaseFormCreateView(PermissionRequiredMixin, CreateView):
-    model = Home
-    form_class = HomeForm
-    template_name = 'add.html'
-    success_url = reverse_lazy('portfolio:home')
+    template_name = 'skills.html'
+    model = SkillsCategory
 
-    def has_permission(self):
-        user = self.request.user
-        if user.is_superuser:
-            return user.has_perms('portfolio.add')
-        raise PermissionDenied
+    def get_queryset(self):
+        return self.model.objects.all()
 
-class WorksFormView(BaseFormCreateView):
-
-    model = Works
-    form_class = WorksForm
-    template_name = 'add_work.html'
-    success_url = reverse_lazy('portfolio:works')
-
-class SkillsFormView(BaseFormCreateView):
-
-    model = Skills
-    form_class = SkillsForm
-    template_name = 'add_skill.html'
-    success_url = reverse_lazy('portfolio:works')
+    def get_context_data(self, **kwargs):
+        context = super(CategoryView, self).get_context_data(**kwargs)
+        return context
 
 class WorksView(ListView):
+
     template_name = 'works.html'
     model = Works
 
@@ -67,12 +50,15 @@ class HomeView(ListView):
         return context
 
 class SkillView(ListView):
+
     template_name = 'skills.html'
     model = Skills
 
     def get_queryset(self):
-        return self.model.objects.all()
+        return self.model.objects.filter()
 
     def get_context_data(self, **kwargs):
         context = super(SkillView, self).get_context_data(**kwargs)
+        query_set = SkillsCategory.objects.all()
+        context['categories'] = query_set
         return context

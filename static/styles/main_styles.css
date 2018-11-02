@@ -1336,3 +1336,8 @@ section
 {
 	margin-bottom: 0px;
 }
+
+#categories {
+    text-align:center;
+    float:left;
+}

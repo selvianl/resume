@@ -21,7 +21,6 @@ class Works(models.Model):
     description = models.TextField(max_length=255)
 
 
-
 class SkillsCategory (models.Model):
     name = models.CharField(max_length=50)
 
@@ -30,7 +29,7 @@ class SkillsCategory (models.Model):
 
 
 class Skills(models.Model):
-    id = models.AutoField(primary_key=True, default="Languages", editable=True)
+    #id = models.AutoField(primary_key=True, default="Languages", editable=True)
     category = models.ForeignKey('SkillsCategory', on_delete=models.CASCADE)
     logo = models.ImageField(upload_to='static/images', blank=True)
 
