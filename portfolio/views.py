@@ -1,11 +1,8 @@
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from portfolio.form import *
 from portfolio.models import Home , Works , Skills  ,SkillsCategory
-from django.core.exceptions import PermissionDenied
 
 
 class SignUp(CreateView):

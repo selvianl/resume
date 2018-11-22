@@ -1,18 +1,10 @@
 from django.db import models
-from django.shortcuts import redirect
-from django.urls import reverse
-
 
 class Home(models.Model):
     id = models.AutoField(primary_key=True)
     header = models.CharField(max_length=50)
     name = models.TextField(max_length=500)
     photo = models.ImageField(upload_to='static/images', blank=True)
-
-    def get_absolute_url(self):
-        return reverse('show', kwargs={'id': self.id})
-
-
 
 class Works(models.Model):
     id = models.AutoField(primary_key=True)
