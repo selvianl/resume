@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static%}
+{%block content%}
+
+
+
+ {% for object in object_list %}
+    {% if forloop.last %}
+    <div class="col-lg-10 offset-lg-1">
+					<div class="testimonials_container">
+
+							<div class="owl-item testimonials_item d-flex flex-column align-items-center justify-content-center text-center">
+								<div class="testimonials_content">
+									<div><img src="/{{ object.photo }}" alt="" /></div>
+                                            <div class="test_name">{{object.name}}</div>
+                                            <div class="test_title">{{object.header}}</div>
+                                            <div class="test_quote">"</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum, olor sit amet, consectetur adipiscing eli quam tincidunt venen atis ultrices, est libero olor sit amet, consectetur adipiscing eli mattis ante.</p>
+								</div>
+								</div>
+
+                    </div>
+                    </div>
+
+
+    {% endif %}
+
+{% empty %}
+
+    QuerySet is Empty..
+
+
+    {% if request.user.is_superuser %}
+        <p > <a href = "{% url 'portfolio:add_home' %}"> Click </a> to add some data to queryset.  </p>
+
+    {% else %}
+
+
+    <p> First <a href = "/accounts/login/"> Login </a> as SuperUser ..  </p>
+
+
+    {% endif %}
+
+ {% endfor %}
+
+
+{%endblock content%}

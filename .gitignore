@@ -2,12 +2,15 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.py.swp
 
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+/portfolio/migrations/*
+.idea/*
 build/
 develop-eggs/
 dist/
@@ -55,7 +58,7 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
-
+static/images/*
 # Flask stuff:
 instance/
 .webassets-cache

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+
+
+		{% for category in categories %}
+		<div class="col-md-4" >
+				<div> {{category.name}} </div>
+			{% for object in object_list%}
+             {% if object.category.id == category.id %}
+				<img style = "width:96px; height:96px;"src="/{{ object.logo }}" alt="" /> {% endif %}
+							{% endfor %}
+
+		</div>
+			{% endfor %}
+
+    </div>
+    </div>
+
+
+
+{%endblock content%}
