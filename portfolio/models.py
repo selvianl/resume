@@ -1,47 +1,35 @@
 from django.db import models
-
-class Home(models.Model):
-    id = models.AutoField(primary_key=True)
-    header = models.CharField(max_length=50)
-    name = models.TextField(max_length=500)
-    photo = models.ImageField(upload_to='static/images', blank=True)
-
-class Works(models.Model):
-    id = models.AutoField(primary_key=True)
-    logo = models.ImageField(upload_to="static/images", blank=True)
-    name = models.CharField(max_length=50)
-    description = models.TextField(max_length=255)
-
-
-class SkillsCategory (models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
-
-
-class Skills(models.Model):
-    #id = models.AutoField(primary_key=True, default="Languages", editable=True)
-    category = models.ForeignKey('SkillsCategory', on_delete=models.CASCADE)
-    logo = models.ImageField(upload_to='static/images', blank=True)
-
-
-
-class Blog(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
-    description = models.TextField()
+from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
+'''
+class Post(models.Model):
+    post_id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=100)
+    text = models.TextField(max_length=500)
+    slug = models.SlugField(unique=True)
+    author = models.ForeignKey(User, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
+    def __unicode__(self):
+        return self.title
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('add_post', (),
+                {'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=40)
-    blog = models.TextField()
-    post = models.ForeignKey(Blog)
+    name = models.CharField(max_length=42)
+    text = models.TextField()
+    post = models.ForeignKey(Post,null=True)
+    created_at = models.DateField(auto_now_add=True)
 
-    class Meta:
-        unique_together = ('post', "blog")
+    def __unicode__(self):
+        return self.text
+'''

@@ -1,7 +1,7 @@
-{% extends "base.html"%}
+{% extends "portfolio/templates/base.html"%}
 {% load static %}
-{% block content %}
-{% include "base_add.html"%}
+{%block content%}
+{% include "portfolio/templates/base_add.html"%}
   <form action="" method="post" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
@@ -9,4 +9,4 @@
     </table>
     <input type="submit" value="Submit" >
   </form>
-{% endblock %}
+{%endblock%}

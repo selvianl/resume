@@ -13,9 +13,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
 </head>
-
 <body>
-
 <div class="super_container">
 
 	<!-- Header -->
@@ -39,15 +37,14 @@
                   <div class="kayit" style="display: inline-block;">
                        <a href="{% url 'login' %}">Login</a> </div>
             {% endif %}
-</div>
+		</div>
 		<!-- Main Navigation -->
 		<nav class="main_nav justify-self-end">
 			<ul class="nav_items">
-				<li class="active"><a href="{% url 'portfolio:home' %}"><span>home</span></a></li>
+				<li><a href="{% url 'portfolio:home' %}"><span>home</span></a></li>
 				<li><a href="{% url 'portfolio:works' %}"><span>works</span></a></li>
 				<li><a href="{% url 'portfolio:skills' %}"><span>skills</span></a></li>
-				<li><a href="blog.html"><span>blog</span></a></li>
-				<li><a href="contact.html"><span>contact</span></a></li>
+				<li><a href="{% url 'portfolio:blog' %}"><span>blog</span></a></li>
 			</ul>
 		</nav>
 
@@ -56,12 +53,8 @@
 			<span class="hamburger_text">Menu</span>
 			<span class="hamburger_icon"></span>
 		</div>
-
 	</header>
-
 	<!-- Menu -->
-
-
 
 	<div class="fs_menu_overlay"></div>
 	<div class="fs_menu_container">
@@ -87,37 +80,15 @@
 		</div>
 	</div>
 
-	<div class="home_social_container d-flex flex-row justify-content-end align-items-center">
-		<ul class="home_social">
-			<li><a href="#"><i class="fab fa-pinterest trans_300"></i></a></li>
-			<li><a href="#"><i class="fab fa-facebook-f trans_300"></i></a></li>
-			<li><a href="#"><i class="fab fa-twitter trans_300"></i></a></li>
-			<li><a href="#"><i class="fab fa-dribbble trans_300"></i></a></li>
-			<li><a href="#"><i class="fab fa-behance trans_300"></i></a></li>
-			<li><a href="#"><i class="fab fa-linkedin-in trans_300"></i></a></li>
-		</ul>
-	</div>
-
 	<!-- Testimonials -->
 	<div class="testimonials">
 
 		<div class="container">
 
-
 				{% block content %} {% endblock %}
-
-
-
 		</div>
 	</div>
-
-
-
-
-
 </div>
-
-
 
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>

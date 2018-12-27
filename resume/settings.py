@@ -32,6 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'portfolio',
+    'portfolio.works',
+    'portfolio.home',
+    'portfolio.skills',
+    'portfolio.categories',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
