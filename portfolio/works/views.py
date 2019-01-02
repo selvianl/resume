@@ -11,9 +11,17 @@ from portfolio.works.forms import WorksForm
 class WorksFormView(BaseSudoView):
     model = Works
     form_class = WorksForm
-    template_name = 'add_work.html'
-    success_url = reverse_lazy('portfolio:works')
+    template_name = 'work_add.html'
+    success_url = reverse_lazy('portfolio:works:work_index')
 
 
 class WorksView(ListView):
-    template_name = 'works/works.html'
+    template_name = 'work_index.html'
+
+    def get_queryset(self):
+        return Works.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(WorksView, self).get_context_data(**kwargs)
+        context['objects'] = Works.objects.all()
+        return context

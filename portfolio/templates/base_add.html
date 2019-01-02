@@ -1,18 +1,16 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 {% load static %}
 {% block content %}
 <div class="testimonials" style="margin-top:-400px;">
 <div class="nav_items" style="height :20px; ">
     <ul class="nav_items">
-        <li><a href="{% url 'portfolio:add_home' %}" ><span >home</span></a></li>
-        <li><a href="{% url 'portfolio:add_works' %}"><span >works</span></a></li>
-        <li><a href="{% url 'portfolio:add_skills' %}"><span>skills</span></a></li>
-        <li><a href="{% url 'portfolio:add_category' %}"><span >category</span></a></li>
-        <li><a href="{% url 'portfolio:add_post' %}"><span >post</span></a></li>
+        <li><a href="{% url 'portfolio:home:home_add' %}" ><span >home</span></a></li>
+        <li><a href="{% url 'portfolio:work:work_add' %}"><span >works</span></a></li>
+        <li><a href="{% url 'portfolio:skill:skill_add' %}"><span>skills</span></a></li>
+        <li><a href="{% url 'portfolio:category:category_add' %}"><span>category</span></a></li>
     </ul>
 </div>
 </div>
-
 {% endblock %}
 
 

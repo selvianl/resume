@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from portfolio.categories.views import CategoryView, CategoryFormView
+from portfolio.categories.views import CategoryFormView
 
 urlpatterns = [
-    url(r'^add_category/$', CategoryFormView.as_view(), name='add_category'),
+    url(r'^add/$', CategoryFormView.as_view(), name='category_add'),
 ]

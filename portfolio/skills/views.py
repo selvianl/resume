@@ -12,11 +12,14 @@ from portfolio.skills.forms import SkillsForm
 class SkillsFormsView(BaseSudoView):
     model = Skills
     form_class = SkillsForm
-    template_name = 'add_skill.html'
-    success_url = reverse_lazy('skills:skills')
+    template_name = 'skill_add.html'
+    success_url = reverse_lazy('portfolio:skill:skill_index')
 
 
 class SkillsView(ListView):
+    model = Skills
+    template_name = 'skill_index.html'
+
     def get_queryset(self):
         return self.model.objects.filter()
 

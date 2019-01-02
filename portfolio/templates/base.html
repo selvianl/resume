@@ -15,47 +15,36 @@
 </head>
 <body>
 <div class="super_container">
-
-	<!-- Header -->
-
 	<header class="header d-flex flex-row justify-content-end align-items-center">
-
-		<!-- Logo -->
 		<div class="logo_container mr-auto">
 			<div class="logo">
-
-				<a href="{% url 'portfolio:home' %}"><span>z</span>zeta<span>.</span></a>
+				<a href="{% url 'portfolio:home:home_index' %}"><span>z</span>zeta<span>.</span></a>
 			</div>
 		</div>
         <div class="container">
         {% if user.is_authenticated %}
-                  Hi <b4> {{ user.username }}! </b4>
-                  <p class="kayit" style="margin-top: 10px;"><a href="{% url 'logout' %}">logout</a></p>
-				  <a href="{% url 'portfolio:add_home' %}"><span>add</span></a>
-                {% else %}
-                  <p style="margin-bottom:10px;">You are not logged in</p>
-                  <div class="kayit" style="display: inline-block;">
-                       <a href="{% url 'login' %}">Login</a> </div>
+			Hi <b4> {{ user.username }}! </b4>
+				<p class="kayit" style="margin-top: 10px;"><a href="{% url 'logout' %}">logout</a></p>
+				<a href="{% url 'portfolio:home:home_add' %}"><span>add</span></a>
+		{% else %}
+				<p style="margin-bottom:10px;">You are not logged in</p>
+			  	<div class="kayit" style="display: inline-block;">
+					<a href="{% url 'login' %}">Login</a>
+				</div>
             {% endif %}
 		</div>
-		<!-- Main Navigation -->
 		<nav class="main_nav justify-self-end">
 			<ul class="nav_items">
-				<li><a href="{% url 'portfolio:home' %}"><span>home</span></a></li>
-				<li><a href="{% url 'portfolio:works' %}"><span>works</span></a></li>
-				<li><a href="{% url 'portfolio:skills' %}"><span>skills</span></a></li>
-				<li><a href="{% url 'portfolio:blog' %}"><span>blog</span></a></li>
+				<li><a href="{% url 'portfolio:home:home_index' %}"><span>home</span></a></li>
+				<li><a href="{% url 'portfolio:work:work_index' %}"><span>works</span></a></li>
+				<li><a href="{% url 'portfolio:skill:skill_index' %}"><span>skills</span></a></li>
 			</ul>
 		</nav>
-
-		<!-- Hamburger -->
 		<div class="hamburger_container">
 			<span class="hamburger_text">Menu</span>
 			<span class="hamburger_icon"></span>
 		</div>
 	</header>
-	<!-- Menu -->
-
 	<div class="fs_menu_overlay"></div>
 	<div class="fs_menu_container">
 		<div class="fs_menu_shapes"><img src="images/menu_shapes.png" alt=""></div>
@@ -79,17 +68,12 @@
 			</ul>
 		</div>
 	</div>
-
-	<!-- Testimonials -->
 	<div class="testimonials">
-
 		<div class="container">
-
-				{% block content %} {% endblock %}
+			{% block content %} {% endblock %}
 		</div>
 	</div>
 </div>
-
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
@@ -102,7 +86,5 @@
 <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
-
 </body>
-
 </html>

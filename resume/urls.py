@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from portfolio.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^portfolio/', include('portfolio.urls', namespace='portfolio')),
+    url(r'^', include('portfolio.urls', namespace='portfolio')),
     url('accounts/', include('django.contrib.auth.urls')),
     url(r'^signup/', SignUp.as_view(), name='signup'),
 
