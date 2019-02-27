@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
+from django.urls import reverse
 
 
 class BaseSudoView(PermissionRequiredMixin, CreateView):
@@ -21,5 +21,8 @@ class BaseSudoView(PermissionRequiredMixin, CreateView):
 class SignUp(CreateView):
     form_class = UserCreationForm
     template_name = 'signup.html'
-    success_url = reverse_lazy('portfolio:add')
+
+    def get_success_url(self, **kwargs):
+        return reverse('portfolio:home:home_index')
+
 

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'portfolio.home',
     'portfolio.skills',
     'portfolio.categories',
+    'portfolio.blog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

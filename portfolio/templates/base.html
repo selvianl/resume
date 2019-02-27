@@ -30,6 +30,7 @@
 				<p style="margin-bottom:10px;">You are not logged in</p>
 			  	<div class="kayit" style="display: inline-block;">
 					<a href="{% url 'login' %}">Login</a>
+					<a href="{% url 'signup' %}">Register</a>
 				</div>
             {% endif %}
 		</div>
@@ -38,6 +39,7 @@
 				<li><a href="{% url 'portfolio:home:home_index' %}"><span>home</span></a></li>
 				<li><a href="{% url 'portfolio:work:work_index' %}"><span>works</span></a></li>
 				<li><a href="{% url 'portfolio:skill:skill_index' %}"><span>skills</span></a></li>
+				<li><a href="{% url 'portfolio:blog:blog_index' %}"><span>blog</span></a></li>
 			</ul>
 		</nav>
 		<div class="hamburger_container">
