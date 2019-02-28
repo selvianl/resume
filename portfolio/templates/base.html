@@ -22,11 +22,13 @@
 			</div>
 		</div>
         <div class="container">
-        {% if user.is_authenticated %}
+		{% if user.is_authenticated %}
 			Hi <b4> {{ user.username }}! </b4>
 				<p class="kayit" style="margin-top: 10px;"><a href="{% url 'logout' %}">logout</a></p>
+			{% if request.user.is_superuser%}
 				<a href="{% url 'portfolio:home:home_add' %}"><span>add</span></a>
-		{% else %}
+		{% endif %}
+			{%else%}
 				<p style="margin-bottom:10px;">You are not logged in</p>
 			  	<div class="kayit" style="display: inline-block;">
 					<a href="{% url 'login' %}">Login</a>
@@ -49,26 +51,14 @@
 	</header>
 	<div class="fs_menu_overlay"></div>
 	<div class="fs_menu_container">
-		<div class="fs_menu_shapes"><img src="images/menu_shapes.png" alt=""></div>
 		<nav class="fs_menu_nav">
 			<ul class="fs_menu_list">
-				<li><a href="#"><span><span>H</span>Home</span></a></li>
-				<li><a href="#"><span><span>S</span>Services</span></a></li>
-				<li><a href="#"><span><span>E</span>Elements</span></a></li>
-				<li><a href="#"><span><span>B</span>Blog</span></a></li>
-				<li><a href="#"><span><span>C</span>Contact</span></a></li>
+				<li><a href="{% url 'portfolio:home:home_index' %}"><span>home</span></a></li>
+				<li><a href="{% url 'portfolio:work:work_index' %}"><span>works</span></a></li>
+				<li><a href="{% url 'portfolio:skill:skill_index' %}"><span>skills</span></a></li>
+				<li><a href="{% url 'portfolio:blog:blog_index' %}"><span>blog</span></a></li>
 			</ul>
 		</nav>
-		<div class="fs_social_container d-flex flex-row justify-content-end align-items-center">
-			<ul class="fs_social">
-				<li><a href="#"><i class="fab fa-pinterest trans_300"></i></a></li>
-				<li><a href="#"><i class="fab fa-facebook-f trans_300"></i></a></li>
-				<li><a href="#"><i class="fab fa-twitter trans_300"></i></a></li>
-				<li><a href="#"><i class="fab fa-dribbble trans_300"></i></a></li>
-				<li><a href="#"><i class="fab fa-behance trans_300"></i></a></li>
-				<li><a href="#"><i class="fab fa-linkedin-in trans_300"></i></a></li>
-			</ul>
-		</div>
 	</div>
 	<div class="testimonials">
 		<div class="container">

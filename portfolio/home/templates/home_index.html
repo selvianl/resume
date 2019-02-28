@@ -22,7 +22,8 @@
 {% if request.user.is_superuser %}
 <p > <a href = "{% url 'portfolio:home:home_add' %}"> Click </a> to add some data to queryset.  </p>
 {% else %}
-<p> First <a href = "/accounts/login/"> Login </a> as SuperUser ..  </p>
+<p> If you have <b> superuser </b>  <a href="{% url 'login' %}"> Login </a>  to add something. </p>
+<p> Otherwise you need to create a superuser via shell by typing <b>python manage.py createsuperuser</b></p>
 {% endif %}
 {% endfor %}
 {%endblock content%}

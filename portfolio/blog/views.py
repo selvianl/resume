@@ -20,7 +20,9 @@ class BlogView(ListView):
     template_name = 'post_index.html'
 
     def get_queryset(self):
-        return Blog.objects.filter(user=self.request.user)
+        if self.request.user.is_authenticated:
+            return Blog.objects.filter(user=self.request.user)
+        return
 
     def get_context_data(self, **kwargs):
         context = super(BlogView, self).get_context_data(**kwargs)
