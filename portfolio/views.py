@@ -18,7 +18,7 @@ class BaseSudoView(PermissionRequiredMixin, CreateView):
         raise PermissionDenied
 
 
-class SignUp(CreateView):
+class SignUp(BaseSudoView, CreateView):
     form_class = UserCreationForm
     template_name = 'signup.html'
 
