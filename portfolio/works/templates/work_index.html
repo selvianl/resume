@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="row">
-    <div class="col-lg-10 offset-lg-1">
-        <div class="testimonials_container">
-            <div class="testimonials_container_inner">
-
-            </div>
-                <div class="owl-carousel owl-theme testimonials_slider">
-                    <div class="owl-item testimonials_item d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="testimonials_content">
+<div class="col-lg-10 offset-lg-1">
+    <div class="testimonials_container">
+        <div class="owl-item testimonials_item d-flex flex-column align-items-center justify-content-center text-center">
+            <div class="testimonials_content">
+                <div> For more information <a href="https://www.github.com/selvianl"> click...</a></div>
 {% for object in object_list%}
     Name: {{ object.name }}<br>
     Description: {{ object.description }}
@@ -19,6 +15,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 {%endblock%}

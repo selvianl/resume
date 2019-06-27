@@ -12,7 +12,7 @@ class WorksFormView(BaseSudoView):
     model = Works
     form_class = WorksForm
     template_name = 'work_add.html'
-    success_url = reverse_lazy('portfolio:works:work_index')
+    success_url = reverse_lazy('portfolio:work:work_index')
 
 
 class WorksView(ListView):

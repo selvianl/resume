@@ -1,7 +1,7 @@
 {% load static %}
 <html lang="en">
 <head>
-<title>Zeta</title>
+<title>Anıl Selvi</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,24 +18,24 @@
 	<header class="header d-flex flex-row justify-content-end align-items-center">
 		<div class="logo_container mr-auto">
 			<div class="logo">
-				<a href="{% url 'portfolio:home:home_index' %}"><span>z</span>zeta<span>.</span></a>
+				<a href="{% url 'portfolio:home:home_index' %}"><span>a</span>anilselvi<span>.</span></a>
 			</div>
 		</div>
-        <div class="container">
-		{% if user.is_authenticated %}
-			Hi <b4> {{ user.username }}! </b4>
-				<p class="kayit" style="margin-top: 10px;"><a href="{% url 'logout' %}">logout</a></p>
-			{% if request.user.is_superuser%}
-				<a href="{% url 'portfolio:home:home_add' %}"><span>add</span></a>
-		{% endif %}
-			{%else%}
-				<p style="margin-bottom:10px;">You are not logged in</p>
-			  	<div class="kayit" style="display: inline-block;">
-					<a href="{% url 'login' %}">Login</a>
-					<a href="{% url 'signup' %}">Register</a>
-				</div>
-            {% endif %}
-		</div>
+<!--        <div class="container">-->
+<!--		{% if user.is_authenticated %}-->
+<!--			Hi <b4> {{ user.username }}! </b4>-->
+<!--				<p class="kayit" style="margin-top: 10px;"><a href="{% url 'logout' %}">logout</a></p>-->
+<!--			{% if request.user.is_superuser%}-->
+<!--				<a href="{% url 'portfolio:home:home_add' %}"><span>add</span></a>-->
+<!--		{% endif %}-->
+<!--			{%else%}-->
+<!--				<p style="margin-bottom:10px;">You are not logged in</p>-->
+<!--			  	<div class="kayit" style="display: inline-block;">-->
+<!--					<a href="{% url 'login' %}">Login</a>-->
+<!--					<a href="{% url 'signup' %}">Register</a>-->
+<!--				</div>-->
+<!--            {% endif %}-->
+<!--		</div>-->
 		<nav class="main_nav justify-self-end">
 			<ul class="nav_items">
 				<li><a href="{% url 'portfolio:home:home_index' %}"><span>home</span></a></li>
